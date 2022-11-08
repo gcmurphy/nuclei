@@ -6,6 +6,7 @@ package dedupe
 
 import (
 	"crypto/sha1"
+	"fmt"
 	"os"
 	"reflect"
 	"unsafe"
@@ -16,6 +17,42 @@ import (
 	"github.com/projectdiscovery/nuclei/v2/pkg/output"
 	"github.com/projectdiscovery/nuclei/v2/pkg/types"
 )
+
+type Fingerprint []byte
+
+func (f *Fingerprint) ToString() string {
+	return fmt.Sprintf("dedupe:%s", string([]byte(*f))[0:8])
+}
+
+func NewFingerprint(result *output.ResultEvent) Fingerprint {
+	hasher := sha1.New()
+	if result.TemplateID != "" {
+		_, _ = hasher.Write(unsafeToBytes(result.TemplateID))
+	}
+	if result.MatcherName != "" {
+		_, _ = hasher.Write(unsafeToBytes(result.MatcherName))
+	}
+	if result.ExtractorName != "" {
+		_, _ = hasher.Write(unsafeToBytes(result.ExtractorName))
+	}
+	if result.Type != "" {
+		_, _ = hasher.Write(unsafeToBytes(result.Type))
+	}
+	if result.Host != "" {
+		_, _ = hasher.Write(unsafeToBytes(result.Host))
+	}
+	if result.Matched != "" {
+		_, _ = hasher.Write(unsafeToBytes(result.Matched))
+	}
+	for _, v := range result.ExtractedResults {
+		_, _ = hasher.Write(unsafeToBytes(v))
+	}
+	for k, v := range result.Metadata {
+		_, _ = hasher.Write(unsafeToBytes(k))
+		_, _ = hasher.Write(unsafeToBytes(types.ToString(v)))
+	}
+	return hasher.Sum(nil)
+}
 
 // Storage is a duplicate detecting storage for nuclei scan events.
 type Storage struct {
@@ -62,42 +99,15 @@ func (s *Storage) Close() {
 // Index indexes an item in storage and returns true if the item
 // was unique.
 func (s *Storage) Index(result *output.ResultEvent) (bool, error) {
-	hasher := sha1.New()
-	if result.TemplateID != "" {
-		_, _ = hasher.Write(unsafeToBytes(result.TemplateID))
-	}
-	if result.MatcherName != "" {
-		_, _ = hasher.Write(unsafeToBytes(result.MatcherName))
-	}
-	if result.ExtractorName != "" {
-		_, _ = hasher.Write(unsafeToBytes(result.ExtractorName))
-	}
-	if result.Type != "" {
-		_, _ = hasher.Write(unsafeToBytes(result.Type))
-	}
-	if result.Host != "" {
-		_, _ = hasher.Write(unsafeToBytes(result.Host))
-	}
-	if result.Matched != "" {
-		_, _ = hasher.Write(unsafeToBytes(result.Matched))
-	}
-	for _, v := range result.ExtractedResults {
-		_, _ = hasher.Write(unsafeToBytes(v))
-	}
-	for k, v := range result.Metadata {
-		_, _ = hasher.Write(unsafeToBytes(k))
-		_, _ = hasher.Write(unsafeToBytes(types.ToString(v)))
-	}
-	hash := hasher.Sum(nil)
-
-	exists, err := s.storage.Has(hash, nil)
+	fingerprint := NewFingerprint(result)
+	exists, err := s.storage.Has(fingerprint, nil)
 	if err != nil {
 		// if we have an error, return with it but mark it as true
 		// since we don't want to lose an issue considering it a dupe.
 		return true, err
 	}
 	if !exists {
-		return true, s.storage.Put(hash, nil, nil)
+		return true, s.storage.Put(fingerprint, nil, nil)
 	}
 	return false, err
 }
