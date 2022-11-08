@@ -3,6 +3,7 @@ package github
 import (
 	"context"
 	"fmt"
+	"log"
 	"net/http"
 	"net/url"
 	"strings"
@@ -13,6 +14,7 @@ import (
 	"github.com/pkg/errors"
 
 	"github.com/projectdiscovery/nuclei/v2/pkg/output"
+	"github.com/projectdiscovery/nuclei/v2/pkg/reporting/dedupe"
 	"github.com/projectdiscovery/nuclei/v2/pkg/reporting/format"
 	"github.com/projectdiscovery/nuclei/v2/pkg/types"
 	"github.com/projectdiscovery/retryablehttp-go"
@@ -41,6 +43,9 @@ type Options struct {
 	// SeverityAsLabel (optional) sends the severity as the label of the created
 	// issue.
 	SeverityAsLabel bool `yaml:"severity-as-label"`
+	// Dedupe avoids creating duplicate issues by searching Github for existing
+	// issues with the same fingerprint
+	Dedupe bool `yaml:"dedupe-issues"`
 
 	HttpClient *retryablehttp.Client `yaml:"-"`
 }
@@ -77,8 +82,24 @@ func New(options *Options) (*Integration, error) {
 
 // CreateIssue creates an issue in the tracker
 func (i *Integration) CreateIssue(event *output.ResultEvent) error {
+
+	fingerprint := dedupe.NewFingerprint(event)
 	summary := format.Summary(event)
 	description := format.MarkdownDescription(event)
+	if i.options.Dedupe {
+		context := context.Background()
+		query := fmt.Sprintf("%s in:body repo:%s/%s is:issue", fingerprint.ToString(), i.options.Owner, i.options.ProjectName)
+		issues, _, err := i.client.Search.Issues(context, query, nil)
+		if err != nil {
+			return err
+		}
+		if issues.GetTotal() > 0 {
+			log.Printf("skipping creation of issue for match for %s on %s as github issue: %s already exists", event.TemplateID, event.Host, *issues.Issues[0].HTMLURL)
+			return nil
+		}
+		description = fmt.Sprintf("%s\n\n\n%s", description, fingerprint.ToString())
+	}
+
 	labels := []string{}
 	severityLabel := fmt.Sprintf("Severity: %s", event.Info.SeverityHolder.Severity.String())
 	if i.options.SeverityAsLabel && severityLabel != "" {
