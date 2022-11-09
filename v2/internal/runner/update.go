@@ -28,8 +28,8 @@ import (
 	"github.com/projectdiscovery/folderutil"
 	"github.com/projectdiscovery/gologger"
 	"github.com/projectdiscovery/nuclei-updatecheck-api/client"
-	"github.com/projectdiscovery/nuclei/v2/pkg/catalog/config"
-	"github.com/projectdiscovery/nuclei/v2/pkg/utils"
+	"github.com/gcmurphy/nuclei/v2/pkg/catalog/config"
+	"github.com/gcmurphy/nuclei/v2/pkg/utils"
 
 	"github.com/tj/go-update"
 	"github.com/tj/go-update/progress"
@@ -37,7 +37,7 @@ import (
 )
 
 const (
-	userName             = "projectdiscovery"
+	userName             = "gcmurphy"
 	repoName             = "nuclei-templates"
 	nucleiIgnoreFile     = ".nuclei-ignore"
 	nucleiConfigFilename = ".templates-config.json"
@@ -570,7 +570,7 @@ func updateNucleiVersionToLatest(verbose bool) error {
 	m := &update.Manager{
 		Command: command,
 		Store: &githubUpdateStore.Store{
-			Owner:   "projectdiscovery",
+			Owner:   "gcmurphy",
 			Repo:    "nuclei",
 			Version: config.Version,
 		},

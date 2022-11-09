@@ -11,18 +11,18 @@ import (
 	"runtime/pprof"
 	"time"
 
+	"github.com/gcmurphy/nuclei/v2/internal/runner"
 	"github.com/projectdiscovery/fileutil"
 	"github.com/projectdiscovery/goflags"
 	"github.com/projectdiscovery/gologger"
 	"github.com/projectdiscovery/interactsh/pkg/client"
-	"github.com/projectdiscovery/nuclei/v2/internal/runner"
-	"github.com/projectdiscovery/nuclei/v2/pkg/catalog/config"
-	"github.com/projectdiscovery/nuclei/v2/pkg/model/types/severity"
-	"github.com/projectdiscovery/nuclei/v2/pkg/operators/common/dsl"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/http"
-	templateTypes "github.com/projectdiscovery/nuclei/v2/pkg/templates/types"
-	"github.com/projectdiscovery/nuclei/v2/pkg/types"
-	"github.com/projectdiscovery/nuclei/v2/pkg/utils/monitor"
+	"github.com/gcmurphy/nuclei/v2/pkg/catalog/config"
+	"github.com/gcmurphy/nuclei/v2/pkg/model/types/severity"
+	"github.com/gcmurphy/nuclei/v2/pkg/operators/common/dsl"
+	"github.com/gcmurphy/nuclei/v2/pkg/protocols/http"
+	templateTypes "github.com/gcmurphy/nuclei/v2/pkg/templates/types"
+	"github.com/gcmurphy/nuclei/v2/pkg/types"
+	"github.com/gcmurphy/nuclei/v2/pkg/utils/monitor"
 )
 
 var (

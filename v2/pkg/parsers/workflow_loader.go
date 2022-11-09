@@ -2,9 +2,9 @@ package parsers
 
 import (
 	"github.com/projectdiscovery/gologger"
-	"github.com/projectdiscovery/nuclei/v2/pkg/catalog/loader/filter"
-	"github.com/projectdiscovery/nuclei/v2/pkg/model"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols"
+	"github.com/gcmurphy/nuclei/v2/pkg/catalog/loader/filter"
+	"github.com/gcmurphy/nuclei/v2/pkg/model"
+	"github.com/gcmurphy/nuclei/v2/pkg/protocols"
 )
 
 type workflowLoader struct {

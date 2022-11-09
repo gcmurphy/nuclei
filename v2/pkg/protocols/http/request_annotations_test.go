@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"testing"
 
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/http/httpclientpool"
+	"github.com/gcmurphy/nuclei/v2/pkg/protocols/http/httpclientpool"
 	"github.com/stretchr/testify/require"
 )
 

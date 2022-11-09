@@ -4,7 +4,7 @@ import (
 	"reflect"
 	"strings"
 
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/marker"
+	"github.com/gcmurphy/nuclei/v2/pkg/protocols/common/marker"
 )
 
 // MergeMapsMany merges many maps into a new map

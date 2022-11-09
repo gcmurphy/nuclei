@@ -8,11 +8,11 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/projectdiscovery/nuclei/v2/pkg/model"
-	"github.com/projectdiscovery/nuclei/v2/pkg/model/types/severity"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/generators"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/interactsh"
-	"github.com/projectdiscovery/nuclei/v2/pkg/testutils"
+	"github.com/gcmurphy/nuclei/v2/pkg/model"
+	"github.com/gcmurphy/nuclei/v2/pkg/model/types/severity"
+	"github.com/gcmurphy/nuclei/v2/pkg/protocols/common/generators"
+	"github.com/gcmurphy/nuclei/v2/pkg/protocols/common/interactsh"
+	"github.com/gcmurphy/nuclei/v2/pkg/testutils"
 )
 
 func TestBaseURLWithTemplatePrefs(t *testing.T) {
@@ -143,7 +143,7 @@ func TestMakeRequestFromRawWithPayloads(t *testing.T) {
 		AttackType: generators.AttackTypeHolder{Value: generators.ClusterBombAttack},
 		Raw: []string{`GET /manager/html HTTP/1.1
 Host: {{Hostname}}
-User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)
+User-Agent: Nuclei - Open-source project (github.com/gcmurphy/nuclei)
 Connection: close
 Authorization: Basic {{username + ':' + password}}
 Accept-Encoding: gzip`},
@@ -184,7 +184,7 @@ func TestMakeRequestFromRawPayloadExpressions(t *testing.T) {
 		AttackType: generators.AttackTypeHolder{Value: generators.ClusterBombAttack},
 		Raw: []string{`GET /manager/html HTTP/1.1
 Host: {{Hostname}}
-User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)
+User-Agent: Nuclei - Open-source project (github.com/gcmurphy/nuclei)
 Connection: close
 Authorization: Basic {{base64(username + ':' + password)}}
 Accept-Encoding: gzip`},

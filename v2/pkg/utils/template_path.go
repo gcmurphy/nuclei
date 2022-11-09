@@ -5,12 +5,12 @@ import (
 	"strings"
 
 	"github.com/mitchellh/go-homedir"
-	"github.com/projectdiscovery/nuclei/v2/pkg/catalog/config"
+	"github.com/gcmurphy/nuclei/v2/pkg/catalog/config"
 )
 
 const (
 	// TemplatesRepoURL is the URL for files in nuclei-templates repository
-	TemplatesRepoURL = "https://github.com/projectdiscovery/nuclei-templates/blob/master/"
+	TemplatesRepoURL = "https://github.com/gcmurphy/nuclei-templates/blob/master/"
 )
 
 var configData *config.Config

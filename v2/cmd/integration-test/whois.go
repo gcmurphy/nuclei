@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/projectdiscovery/nuclei/v2/pkg/testutils"
+	"github.com/gcmurphy/nuclei/v2/pkg/testutils"
 )
 
 var whoisTestCases = map[string]testutils.TestCase{

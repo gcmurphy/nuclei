@@ -6,6 +6,7 @@ package dedupe
 
 import (
 	"crypto/sha1"
+	"encoding/hex"
 	"fmt"
 	"os"
 	"reflect"
@@ -14,14 +15,15 @@ import (
 	"github.com/syndtr/goleveldb/leveldb"
 	"github.com/syndtr/goleveldb/leveldb/errors"
 
-	"github.com/projectdiscovery/nuclei/v2/pkg/output"
-	"github.com/projectdiscovery/nuclei/v2/pkg/types"
+	"github.com/gcmurphy/nuclei/v2/pkg/output"
+	"github.com/gcmurphy/nuclei/v2/pkg/types"
 )
 
 type Fingerprint []byte
 
 func (f *Fingerprint) ToString() string {
-	return fmt.Sprintf("dedupe:%s", string([]byte(*f))[0:8])
+	hexstr := hex.EncodeToString([]byte(*f))
+	return fmt.Sprintf("dedupe:%s", hexstr[0:8])
 }
 
 func NewFingerprint(result *output.ResultEvent) Fingerprint {

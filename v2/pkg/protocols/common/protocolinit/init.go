@@ -3,12 +3,12 @@ package protocolinit
 import (
 	"github.com/corpix/uarand"
 
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/protocolstate"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/dns/dnsclientpool"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/http/httpclientpool"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/http/signerpool"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/network/networkclientpool"
-	"github.com/projectdiscovery/nuclei/v2/pkg/types"
+	"github.com/gcmurphy/nuclei/v2/pkg/protocols/common/protocolstate"
+	"github.com/gcmurphy/nuclei/v2/pkg/protocols/dns/dnsclientpool"
+	"github.com/gcmurphy/nuclei/v2/pkg/protocols/http/httpclientpool"
+	"github.com/gcmurphy/nuclei/v2/pkg/protocols/http/signerpool"
+	"github.com/gcmurphy/nuclei/v2/pkg/protocols/network/networkclientpool"
+	"github.com/gcmurphy/nuclei/v2/pkg/types"
 )
 
 // Init initializes the client pools for the protocols

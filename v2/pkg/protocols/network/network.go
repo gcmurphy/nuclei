@@ -7,11 +7,11 @@ import (
 
 	"github.com/projectdiscovery/fastdialer/fastdialer"
 	"github.com/projectdiscovery/fileutil"
-	"github.com/projectdiscovery/nuclei/v2/pkg/operators"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/expressions"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/generators"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/network/networkclientpool"
+	"github.com/gcmurphy/nuclei/v2/pkg/operators"
+	"github.com/gcmurphy/nuclei/v2/pkg/protocols"
+	"github.com/gcmurphy/nuclei/v2/pkg/protocols/common/expressions"
+	"github.com/gcmurphy/nuclei/v2/pkg/protocols/common/generators"
+	"github.com/gcmurphy/nuclei/v2/pkg/protocols/network/networkclientpool"
 )
 
 // Request contains a Network protocol request to be made from a template

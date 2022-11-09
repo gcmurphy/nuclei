@@ -6,7 +6,7 @@ import (
 	"path/filepath"
 	"sync"
 
-	"github.com/projectdiscovery/nuclei/v2/pkg/catalog/config"
+	"github.com/gcmurphy/nuclei/v2/pkg/catalog/config"
 	"github.com/rs/xid"
 )
 

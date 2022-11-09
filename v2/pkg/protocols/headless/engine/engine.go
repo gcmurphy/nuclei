@@ -13,7 +13,7 @@ import (
 	ps "github.com/shirou/gopsutil/v3/process"
 
 	"github.com/projectdiscovery/fileutil"
-	"github.com/projectdiscovery/nuclei/v2/pkg/types"
+	"github.com/gcmurphy/nuclei/v2/pkg/types"
 	"github.com/projectdiscovery/stringsutil"
 )
 

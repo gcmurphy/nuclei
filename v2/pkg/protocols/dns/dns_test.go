@@ -5,9 +5,9 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/projectdiscovery/nuclei/v2/pkg/model"
-	"github.com/projectdiscovery/nuclei/v2/pkg/model/types/severity"
-	"github.com/projectdiscovery/nuclei/v2/pkg/testutils"
+	"github.com/gcmurphy/nuclei/v2/pkg/model"
+	"github.com/gcmurphy/nuclei/v2/pkg/model/types/severity"
+	"github.com/gcmurphy/nuclei/v2/pkg/testutils"
 )
 
 func TestGenerateDNSVariables(t *testing.T) {
@@ -15,7 +15,7 @@ func TestGenerateDNSVariables(t *testing.T) {
 	require.Equal(t, map[string]interface{}{
 		"FQDN": "www.projectdiscovery.io",
 		"RDN":  "projectdiscovery.io",
-		"DN":   "projectdiscovery",
+		"DN":   "gcmurphy",
 		"TLD":  "io",
 		"SD":   "www",
 	}, vars, "could not get dns variables")

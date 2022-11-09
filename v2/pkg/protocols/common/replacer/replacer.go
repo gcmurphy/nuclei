@@ -5,8 +5,8 @@ import (
 
 	"github.com/valyala/fasttemplate"
 
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/marker"
-	"github.com/projectdiscovery/nuclei/v2/pkg/types"
+	"github.com/gcmurphy/nuclei/v2/pkg/protocols/common/marker"
+	"github.com/gcmurphy/nuclei/v2/pkg/types"
 )
 
 // Replace replaces placeholders in template with values on the fly.

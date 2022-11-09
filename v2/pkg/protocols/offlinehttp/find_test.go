@@ -7,10 +7,10 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/projectdiscovery/nuclei/v2/pkg/model"
-	"github.com/projectdiscovery/nuclei/v2/pkg/model/types/severity"
-	"github.com/projectdiscovery/nuclei/v2/pkg/operators"
-	"github.com/projectdiscovery/nuclei/v2/pkg/testutils"
+	"github.com/gcmurphy/nuclei/v2/pkg/model"
+	"github.com/gcmurphy/nuclei/v2/pkg/model/types/severity"
+	"github.com/gcmurphy/nuclei/v2/pkg/operators"
+	"github.com/gcmurphy/nuclei/v2/pkg/testutils"
 )
 
 func TestFindResponses(t *testing.T) {

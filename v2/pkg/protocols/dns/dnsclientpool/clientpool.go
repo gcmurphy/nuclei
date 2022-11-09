@@ -6,7 +6,7 @@ import (
 	"sync"
 
 	"github.com/pkg/errors"
-	"github.com/projectdiscovery/nuclei/v2/pkg/types"
+	"github.com/gcmurphy/nuclei/v2/pkg/types"
 	"github.com/projectdiscovery/retryabledns"
 )
 

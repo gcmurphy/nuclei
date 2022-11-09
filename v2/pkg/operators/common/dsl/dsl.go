@@ -36,9 +36,9 @@ import (
 	"github.com/spaolacci/murmur3"
 
 	"github.com/projectdiscovery/gologger"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/helpers/deserialization"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/randomip"
-	"github.com/projectdiscovery/nuclei/v2/pkg/types"
+	"github.com/gcmurphy/nuclei/v2/pkg/protocols/common/helpers/deserialization"
+	"github.com/gcmurphy/nuclei/v2/pkg/protocols/common/randomip"
+	"github.com/gcmurphy/nuclei/v2/pkg/types"
 )
 
 const (

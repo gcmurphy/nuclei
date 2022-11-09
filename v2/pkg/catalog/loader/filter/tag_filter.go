@@ -6,10 +6,10 @@ import (
 
 	"github.com/Knetic/govaluate"
 	"github.com/projectdiscovery/gologger"
-	"github.com/projectdiscovery/nuclei/v2/pkg/model/types/severity"
-	"github.com/projectdiscovery/nuclei/v2/pkg/operators/common/dsl"
-	"github.com/projectdiscovery/nuclei/v2/pkg/templates"
-	"github.com/projectdiscovery/nuclei/v2/pkg/templates/types"
+	"github.com/gcmurphy/nuclei/v2/pkg/model/types/severity"
+	"github.com/gcmurphy/nuclei/v2/pkg/operators/common/dsl"
+	"github.com/gcmurphy/nuclei/v2/pkg/templates"
+	"github.com/gcmurphy/nuclei/v2/pkg/templates/types"
 )
 
 // TagFilter is used to filter nuclei templates for tag based execution

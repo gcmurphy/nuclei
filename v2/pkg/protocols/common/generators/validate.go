@@ -8,7 +8,7 @@ import (
 	"strings"
 
 	"github.com/projectdiscovery/folderutil"
-	"github.com/projectdiscovery/nuclei/v2/pkg/types"
+	"github.com/gcmurphy/nuclei/v2/pkg/types"
 )
 
 // validate validates the payloads if any.

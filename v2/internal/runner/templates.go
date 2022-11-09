@@ -1,14 +1,14 @@
 package runner
 
 import (
-	"github.com/projectdiscovery/nuclei/v2/pkg/catalog/loader"
+	"github.com/gcmurphy/nuclei/v2/pkg/catalog/loader"
 	"path/filepath"
 	"strings"
 
 	"github.com/projectdiscovery/gologger"
-	"github.com/projectdiscovery/nuclei/v2/pkg/parsers"
-	"github.com/projectdiscovery/nuclei/v2/pkg/templates"
-	"github.com/projectdiscovery/nuclei/v2/pkg/types"
+	"github.com/gcmurphy/nuclei/v2/pkg/parsers"
+	"github.com/gcmurphy/nuclei/v2/pkg/templates"
+	"github.com/gcmurphy/nuclei/v2/pkg/types"
 )
 
 // log available templates for verbose (-vv)

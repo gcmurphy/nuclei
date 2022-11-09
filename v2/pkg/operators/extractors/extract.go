@@ -7,7 +7,7 @@ import (
 	"github.com/antchfx/xmlquery"
 	"strings"
 
-	"github.com/projectdiscovery/nuclei/v2/pkg/types"
+	"github.com/gcmurphy/nuclei/v2/pkg/types"
 )
 
 // ExtractRegex extracts text from a corpus and returns it

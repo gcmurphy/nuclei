@@ -17,7 +17,7 @@ import (
 	"github.com/projectdiscovery/hmap/store/hybrid"
 	"github.com/projectdiscovery/iputil"
 	"github.com/projectdiscovery/mapcidr"
-	"github.com/projectdiscovery/nuclei/v2/pkg/types"
+	"github.com/gcmurphy/nuclei/v2/pkg/types"
 )
 
 // Input is a hmap/filekv backed nuclei Input provider

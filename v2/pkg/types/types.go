@@ -5,8 +5,8 @@ import (
 
 	"github.com/projectdiscovery/fileutil"
 	"github.com/projectdiscovery/goflags"
-	"github.com/projectdiscovery/nuclei/v2/pkg/model/types/severity"
-	"github.com/projectdiscovery/nuclei/v2/pkg/templates/types"
+	"github.com/gcmurphy/nuclei/v2/pkg/model/types/severity"
+	"github.com/gcmurphy/nuclei/v2/pkg/templates/types"
 )
 
 // Options contains the configuration options for nuclei scanner.

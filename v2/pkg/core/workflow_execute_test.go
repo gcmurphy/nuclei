@@ -5,14 +5,14 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/projectdiscovery/nuclei/v2/pkg/model/types/stringslice"
-	"github.com/projectdiscovery/nuclei/v2/pkg/operators"
-	"github.com/projectdiscovery/nuclei/v2/pkg/output"
-	"github.com/projectdiscovery/nuclei/v2/pkg/progress"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols/common/contextargs"
-	"github.com/projectdiscovery/nuclei/v2/pkg/types"
-	"github.com/projectdiscovery/nuclei/v2/pkg/workflows"
+	"github.com/gcmurphy/nuclei/v2/pkg/model/types/stringslice"
+	"github.com/gcmurphy/nuclei/v2/pkg/operators"
+	"github.com/gcmurphy/nuclei/v2/pkg/output"
+	"github.com/gcmurphy/nuclei/v2/pkg/progress"
+	"github.com/gcmurphy/nuclei/v2/pkg/protocols"
+	"github.com/gcmurphy/nuclei/v2/pkg/protocols/common/contextargs"
+	"github.com/gcmurphy/nuclei/v2/pkg/types"
+	"github.com/gcmurphy/nuclei/v2/pkg/workflows"
 )
 
 func TestWorkflowsSimple(t *testing.T) {

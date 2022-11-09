@@ -3,13 +3,13 @@ package file
 import (
 	"time"
 
-	"github.com/projectdiscovery/nuclei/v2/pkg/model"
-	"github.com/projectdiscovery/nuclei/v2/pkg/operators"
-	"github.com/projectdiscovery/nuclei/v2/pkg/operators/extractors"
-	"github.com/projectdiscovery/nuclei/v2/pkg/operators/matchers"
-	"github.com/projectdiscovery/nuclei/v2/pkg/output"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols"
-	"github.com/projectdiscovery/nuclei/v2/pkg/types"
+	"github.com/gcmurphy/nuclei/v2/pkg/model"
+	"github.com/gcmurphy/nuclei/v2/pkg/operators"
+	"github.com/gcmurphy/nuclei/v2/pkg/operators/extractors"
+	"github.com/gcmurphy/nuclei/v2/pkg/operators/matchers"
+	"github.com/gcmurphy/nuclei/v2/pkg/output"
+	"github.com/gcmurphy/nuclei/v2/pkg/protocols"
+	"github.com/gcmurphy/nuclei/v2/pkg/types"
 )
 
 // Match matches a generic data response again a given matcher

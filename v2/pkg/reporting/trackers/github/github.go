@@ -3,7 +3,6 @@ package github
 import (
 	"context"
 	"fmt"
-	"log"
 	"net/http"
 	"net/url"
 	"strings"
@@ -13,10 +12,11 @@ import (
 	"github.com/google/go-github/github"
 	"github.com/pkg/errors"
 
-	"github.com/projectdiscovery/nuclei/v2/pkg/output"
-	"github.com/projectdiscovery/nuclei/v2/pkg/reporting/dedupe"
-	"github.com/projectdiscovery/nuclei/v2/pkg/reporting/format"
-	"github.com/projectdiscovery/nuclei/v2/pkg/types"
+	"github.com/gcmurphy/nuclei/v2/pkg/output"
+	"github.com/gcmurphy/nuclei/v2/pkg/reporting/dedupe"
+	"github.com/gcmurphy/nuclei/v2/pkg/reporting/format"
+	"github.com/gcmurphy/nuclei/v2/pkg/types"
+	"github.com/projectdiscovery/gologger"
 	"github.com/projectdiscovery/retryablehttp-go"
 )
 
@@ -89,12 +89,13 @@ func (i *Integration) CreateIssue(event *output.ResultEvent) error {
 	if i.options.Dedupe {
 		context := context.Background()
 		query := fmt.Sprintf("%s in:body repo:%s/%s is:issue", fingerprint.ToString(), i.options.Owner, i.options.ProjectName)
-		issues, _, err := i.client.Search.Issues(context, query, nil)
+		issues, _, err := i.client.Search.Issues(context, query, nil) // TODO may be rate limited here.
 		if err != nil {
 			return err
 		}
-		if issues.GetTotal() > 0 {
-			log.Printf("skipping creation of issue for match for %s on %s as github issue: %s already exists", event.TemplateID, event.Host, *issues.Issues[0].HTMLURL)
+		issuesFound := issues.GetTotal()
+		if issuesFound > 0 {
+			gologger.Info().Msgf("skipping creation of issue for %s on %s as github issue: %s already exists", event.TemplateID, event.Host, *issues.Issues[0].HTMLURL)
 			return nil
 		}
 		description = fmt.Sprintf("%s\n\n\n%s", description, fingerprint.ToString())

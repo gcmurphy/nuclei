@@ -7,12 +7,12 @@ import (
 
 	"gopkg.in/yaml.v2"
 
-	"github.com/projectdiscovery/nuclei/v2/pkg/catalog"
-	"github.com/projectdiscovery/nuclei/v2/pkg/catalog/loader/filter"
-	"github.com/projectdiscovery/nuclei/v2/pkg/templates"
-	"github.com/projectdiscovery/nuclei/v2/pkg/templates/cache"
-	"github.com/projectdiscovery/nuclei/v2/pkg/utils"
-	"github.com/projectdiscovery/nuclei/v2/pkg/utils/stats"
+	"github.com/gcmurphy/nuclei/v2/pkg/catalog"
+	"github.com/gcmurphy/nuclei/v2/pkg/catalog/loader/filter"
+	"github.com/gcmurphy/nuclei/v2/pkg/templates"
+	"github.com/gcmurphy/nuclei/v2/pkg/templates/cache"
+	"github.com/gcmurphy/nuclei/v2/pkg/utils"
+	"github.com/gcmurphy/nuclei/v2/pkg/utils/stats"
 )
 
 const (

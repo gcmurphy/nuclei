@@ -6,11 +6,11 @@ import (
 	"time"
 
 	"github.com/projectdiscovery/gologger"
-	"github.com/projectdiscovery/nuclei/v2/internal/runner/nucleicloud"
-	"github.com/projectdiscovery/nuclei/v2/pkg/catalog/loader"
-	"github.com/projectdiscovery/nuclei/v2/pkg/core"
-	"github.com/projectdiscovery/nuclei/v2/pkg/output"
-	"github.com/projectdiscovery/nuclei/v2/pkg/protocols"
+	"github.com/gcmurphy/nuclei/v2/internal/runner/nucleicloud"
+	"github.com/gcmurphy/nuclei/v2/pkg/catalog/loader"
+	"github.com/gcmurphy/nuclei/v2/pkg/core"
+	"github.com/gcmurphy/nuclei/v2/pkg/output"
+	"github.com/gcmurphy/nuclei/v2/pkg/protocols"
 	"go.uber.org/atomic"
 )
 
